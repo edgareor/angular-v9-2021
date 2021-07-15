@@ -2,9 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
-## Development server
-
-Uso:
+# Uso:
 
 1. Acceder al directorio /project-angular y ejecutar el comando $ npm install.
 
@@ -14,7 +12,7 @@ Uso:
 
 PD: Igualmente se pueden crear nuevos usuarios.
 __________________________________________________________________________________________________________________________
-Desarrollos Aplicados:
+# Desarrollos Aplicados:
 
 1. Barra superior de opciones, estilo Angular Material, con boton dinamico que habilita contenido lateral plegable para navegación a distintas zonas de la aplicación.
 2. Login, user y password, con validaciones respectivas (formulario reactivo), estilo Angular Material, con MatIcons de sufijo, Ver password u ocultar.
