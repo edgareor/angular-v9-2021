@@ -1,0 +1,27 @@
+<h2 align="center" mat-dialog-title> Editar Persona </h2>
+
+<mat-dialog-content>
+    <div align="center">
+        <form [formGroup]="form">
+            <mat-form-field>
+                <mat-label>ID</mat-label>
+                <input formControlName="id" matInput />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input formControlName="nombre" matInput cdkFocusInitial />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Apellido</mat-label>
+                <input formControlName="apellido" matInput />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>RUT</mat-label>
+                <input formControlName="rut" matInput />
+            </mat-form-field>
+            <button style="margin: 10px 0 0 0" align="start" [disabled]="!form.valid" mat-raised-button color="primary"
+                [mat-dialog-close]="form.getRawValue()">Editar</button>&nbsp;&nbsp;&nbsp;
+            <button align="end" mat-raised-button [mat-dialog-close]="undefined">Salir</button>
+        </form>
+    </div>
+</mat-dialog-content>

@@ -1,0 +1,19 @@
+<h2 align="center" mat-dialog-title> Restaurar contraseña </h2>
+<mat-dialog-content>
+    <div align="center">
+        <form [formGroup]="form">
+            <mat-form-field>
+                <mat-label>Correo</mat-label>
+                <input formControlName="email" placeholder="Ingresar Correo" matInput cdkFocusInitial />
+                <button mat-icon-button matSuffix>
+                    <mat-icon>mail</mat-icon>
+                </button>
+            </mat-form-field>
+            <div>
+                <span style="color:coral">Enviaremos una contraseña a su correo</span>
+            </div>
+            <button style="margin: 15px 0 0 0" align="start" mat-stroked-button [disabled]="!form.valid"
+                mat-raised-button color="primary" (click)="enviarCorreo()">Enviar</button>&nbsp;&nbsp;&nbsp;
+        </form>
+    </div>
+</mat-dialog-content>

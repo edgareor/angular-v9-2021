@@ -1,0 +1,24 @@
+<h2 align="center" mat-dialog-title> Agregar Persona </h2>
+
+<mat-dialog-content>
+    <div align="center">
+        <form [formGroup]="form">
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input formControlName="nombre" placeholder="Ingresar Nombre" matInput cdkFocusInitial />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Apellido</mat-label>
+                <input formControlName="apellido" placeholder="Ingresar Apellido" matInput />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>RUT</mat-label>
+                <input formControlName="rut" placeholder="Ingresar RUT" matInput />
+            </mat-form-field>
+
+            <button style="margin: 30px 0 0 0" align="start" [disabled]="!form.valid" mat-raised-button color="primary"
+                [mat-dialog-close]="form.getRawValue()">Agregar</button>&nbsp;&nbsp;&nbsp;
+            <button align="end" mat-raised-button [mat-dialog-close]="undefined">Salir</button>
+        </form>
+    </div>
+</mat-dialog-content>

@@ -1,0 +1,93 @@
+<div style="text-align:center">
+    <mat-card style="width:80%;margin: 10px auto 20px auto;background:#B084CC;box-shadow: 0px 5px 5px 0px;">
+        <mat-card-title>Video - Audio HTML5</mat-card-title>
+    </mat-card>
+    <video style="width:300px;height:200px;margin: 5px auto; display:block" onchange="ingresarFile()" controls>
+		  <source src="../../../assets/video.mp4" type="video/mp4"/>
+		  <source src="../../../assets/video.webm" type="video/webm"/>
+		  <source src="../../../assets/video.ogv" type="video/ogg"/>
+		  <p> Mensaje Opcional en caso que el navegador no soporte video. </p>
+	</video>
+
+    <audio style="margin: 5px auto;" controls>
+		  <source src="../../../assets/audio1.mp3" type="audio/mpeg">
+		  <p> Mensaje Opcional en caso que el navegador no soporte audio. </p>
+	</audio>
+</div>
+<div style="text-align:center">
+    <mat-card style="width:80%;margin: 10px auto 20px auto;background:#B084CC;box-shadow: 0px 5px 5px 0px;">
+        <mat-card-title>Adjuntar Archivo</mat-card-title>
+    </mat-card>
+</div>
+<section style="margin: 10px auto;text-align:center">
+    <input type="text" id="textIn" />
+    <button mat-raised-button (click)="testJquery()">Test JQuery</button> <br><br>
+    <input type="file" name="file" id="file" multiple/>
+</section>
+<div style="text-align:center">
+    <mat-card style="width:80%;margin: 10px auto 20px auto;background:#B084CC;box-shadow: 0px 5px 5px 0px;">
+        <mat-card-title>Geolocalización</mat-card-title>
+    </mat-card>
+</div>
+<div style="text-align:center">
+    <button mat-raised-button (click)="testJquery2()">Geolocalizacion</button>
+    <h6>NOTA 1: Para que funcione se debe activar el host como seguro en Google Chrome</h6>
+    <div *ngIf="salida">
+        <h3>Latitud: {{latitud}}</h3>
+        <h3>Longitud: {{longitud}}</h3>
+    </div>
+    <h6>NOTA 2: Para generar un mapa interactivo de Google se necesita crear una API KEY, lo cual incluye precio y facturación</h6>
+</div>
+<div style="text-align:center">
+    <mat-card style="width:80%;margin: 10px auto 20px auto;background:#B084CC;box-shadow: 0px 5px 5px 0px;">
+        <mat-card-title>Drag and Drop</mat-card-title>
+    </mat-card>
+</div>
+<div style="text-align:center">
+    <figure>
+        <figcaption>Imagenes a arrastrar</figcaption>
+        <img id="img1" src="../../../assets/img1.jpg" draggable=true (dragstart)="drag($event)">
+        <img id="img2" src="../../../assets/img2.jpg" draggable=true (dragstart)="drag($event)">
+        <img id="img3" src="../../../assets/img3.jpg" draggable=true (dragstart)="drag($event)">
+    </figure>
+</div>
+<div #divDaD style="text-align:center;margin: 10px auto" class="dragAndDrop" (dragover)="dragover($event)" (drop)="dropFunction($event)">
+    Arrastrar la imagen aqui
+</div>
+<div style="text-align:center">
+    <mat-card style="width:80%;margin: 10px auto 20px auto;background:#B084CC;box-shadow: 0px 5px 5px 0px;">
+        <mat-card-title>Canvas</mat-card-title>
+    </mat-card>
+</div>
+<section style="text-align:center">
+    <canvas #myCanvas width="750" height="500" style="border:1px solid #000000;">
+    Tu navegador no soporta Canvas
+	</canvas>
+</section>
+<footer style="display:flex;justify-content:center;">
+    <button (click)="startTimer();"> Iniciar Animacion Canvas</button>
+    <button (click)="pauseTimer();"> Detener Animacion Canvas</button>
+    <button (mouseout)="desactivarBandera()" (mouseover)="activarBandera()" [style.borderColor]="isActive ? 'green' : 'red'">Submit</button>
+</footer>
+<div style="text-align:center">
+    <mat-card style="width:80%;margin: 10px auto 20px auto;background:#B084CC;box-shadow: 0px 5px 5px 0px;">
+        <mat-card-title>Flex Box - Transformaciones</mat-card-title>
+    </mat-card>
+</div>
+<div id="contenedor">
+    <div id="uno">
+        <p>Uno</p>
+    </div>
+    <div id="dos">
+        <p>dos</p>
+    </div>
+    <div id="tres">
+        <p>tres</p>
+    </div>
+    <div id="cuatro">
+        <p>scale - delay</p>
+    </div>
+    <div id="cinco">
+        <p>combinación - duration</p>
+    </div>
+</div>

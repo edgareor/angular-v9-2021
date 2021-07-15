@@ -1,0 +1,23 @@
+<div matRipple [matRippleUnbounded]="true" [matRippleRadius]="100">
+    <div style="text-align:center;">
+        <mat-card style="width:80%;margin: 10px auto 20px auto;background:#B084CC;box-shadow: 0px 5px 5px 0px;">
+            <mat-card-title>Top #100 Poke API</mat-card-title>
+        </mat-card>
+    </div>
+    <div style="width:80%;margin: 10px auto">
+        <mat-grid-list cols="6" rowHeight="150px" gutterSize="20px">
+            <a *ngFor="let hero of heroes">
+                <mat-grid-tile style="text-align:center;background:#DCCFEC;" colspan="2">
+                    <mat-grid-tile-header style="text-align:center;background:#F6F8FF;color:#000">Header
+                    </mat-grid-tile-header>
+                    <div style="vertical-align: bottom;" matBadge="{{hero.id}}" matBadgeOverlap="false"
+                        matBadgePosition="above before" matBadgeSize="medium">
+                    </div>
+                    <span> &nbsp;&nbsp;{{hero.name | uppercase}}</span>
+                    <mat-grid-tile-footer style="text-align:center;background:#F6F8FF;color:#000">Footer
+                    </mat-grid-tile-footer>
+                </mat-grid-tile>
+            </a>
+        </mat-grid-list>
+    </div>
+</div>

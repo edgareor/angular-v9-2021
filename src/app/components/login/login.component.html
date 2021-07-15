@@ -1,0 +1,69 @@
+<div matRipple [matRippleUnbounded]="true" [matRippleRadius]="80" style="height:100%; background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);">
+    <form [formGroup]="formLogin" method="get" style="font-size:medium;">
+        <div style="padding-top: 20px;">
+            <div style="justify-content:center;" class="mdl-grid">
+                <div class="mdl-cell mdl-cell--3-col">
+                    <mat-card style="background-color: #0093E9;
+                    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+                    ;text-align:center;box-shadow: 0px 5px 5px 0px;">
+                        <mat-card-title>BIENVENIDO</mat-card-title>
+                    </mat-card>
+                </div>
+            </div>
+
+            <div class="mdl-grid mdl-typography--text-center" style="justify-content:center;">
+
+                <div class="mdl-cell mdl-cell--4-col">
+                    <mat-form-field appearance="outline" style="font-weight:bold">
+                        <mat-label>Email</mat-label>
+                        <input type="email" formControlName="email" matInput placeholder="Email" autocomplete="off" />
+                        <button mat-icon-button matSuffix>
+                            <mat-icon matSuffix>email</mat-icon>
+                        </button>
+                        <mat-hint align="end">Add Email</mat-hint>
+                    </mat-form-field>
+
+                    <mat-divider></mat-divider>
+                </div>
+            </div>
+            <div class="mdl-grid mdl-typography--text-center" style="justify-content:center;">
+                <div class="mdl-cell mdl-cell--4-col">
+                    <mat-form-field appearance="outline" style="font-weight:bold">
+                        <mat-label>Password</mat-label>
+                        <input formControlName="password" matInput [type]="hide ? 'password' : 'text'"
+                            placeholder="Password">
+                        <button mat-icon-button matSuffix (click)="hide = !hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-hint align="end">Add Password</mat-hint>
+                    </mat-form-field>
+                    <mat-divider></mat-divider>
+                </div>
+            </div>
+
+            <div class="mdl-grid mdl-typography--text-center" style="justify-content:center;">
+                <re-captcha (resolved)="resolved($event)" siteKey="6LfHv4AbAAAAAIbWhD3kdqOiKgIi8S9ugfUYOJqC">
+                </re-captcha>
+            </div>
+
+            <div class="mdl-grid mdl-typography--text-center" style="justify-content:center;">
+                <div class="mdl-cell mdl-cell--1-col">
+                    <button #enviar [disabled]="recaptcha" mat-raised-button mat-stroked-button color="primary"
+                        style="font-weight:bold" type="submit" (click)="submit(formLogin.value)">Login</button>
+                </div>
+                <div class="mdl-cell mdl-cell--1-col">
+                    <button [disabled]="formLogin.invalid" mat-raised-button color="primary" style="font-weight:bold"
+                        type="reset" (click)="reset()">Delete</button>
+                </div>
+            </div>
+            <div class="mdl-grid mdl-typography--text-center" style="justify-content:center;">
+                <div class="mdl-cell mdl-cell--4-col">
+                    <a style="color:black" href="javascript:void(0)" (click)="restaurarPassword()">¿No
+                        recuerdas tu
+                        contraseña?</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

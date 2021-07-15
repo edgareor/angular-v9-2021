@@ -1,0 +1,32 @@
+<h2 align="center" mat-dialog-title> Eliminar Persona </h2>
+
+<mat-dialog-content>
+    <div align="center">
+        <form [formGroup]="form">
+            <mat-form-field>
+                <mat-label>ID</mat-label>
+                <input formControlName="id" matInput />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input formControlName="nombre" matInput />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Apellido</mat-label>
+                <input formControlName="apellido" matInput />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>RUT</mat-label>
+                <input formControlName="rut" matInput />
+            </mat-form-field>
+            <div>
+                <span> ¿Estas seguro de eliminar la persona: <strong>{{data.id}}</strong>?</span>
+            </div>
+            <div>
+                <button style="margin: 10px 0 0 0" align="start" mat-raised-button color="primary"
+                    [mat-dialog-close]="true">SI</button>&nbsp;&nbsp;&nbsp;
+                <button align="end" mat-raised-button color="primary" [mat-dialog-close]="undefined">NO</button>
+            </div>
+        </form>
+    </div>
+</mat-dialog-content>

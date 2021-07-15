@@ -1,0 +1,120 @@
+<div style="align:center;justify-content:center;" class="mdl-grid">
+    <div class="mdl-cell mdl-cell--8-col">
+        <mat-card style="background:#B084CC;text-align:center;box-shadow: 0px 5px 5px 0px;">
+            <mat-card-title>Formulario Test Angular - Angular Material</mat-card-title>
+        </mat-card>
+    </div>
+</div>
+<!-- style="width:15%; margin: 10px auto;"  -->
+<form [formGroup]="form" method="get" style="font-size:medium;">
+    <div class="mdl-grid mdl-typography--text-center" style="justify-content:center;">
+
+        <input type="hidden" name="oculto" value="valorOculto" />
+
+        <div class="mdl-cell mdl-cell--2-col">
+            <mat-form-field appearance="outline">
+                <mat-label>Usuario</mat-label>
+                <input #input type="text" formControlName="usuario" matInput placeholder="User" autofocus (input)="input.value=$event.target.value.toUpperCase()" />
+                <button mat-icon-button matSuffix>
+                <mat-icon matSuffix>person_search</mat-icon>
+            </button>
+                <mat-hint align="end">Add User</mat-hint>
+            </mat-form-field>
+
+            <mat-divider></mat-divider>
+        </div>
+        &nbsp;&nbsp;
+        <div class="mdl-cell mdl-cell--2-col">
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" placeholder="Password" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+                <mat-hint align="end">Add Password</mat-hint>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+        </div>
+    </div>
+
+    <div class="mdl-grid mdl-typography--text-center" style="justify-content:center;">
+
+        <div class="mdl-cell mdl-cell--2-col">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="email" formControlName="email" matInput placeholder="Email" />
+                <button mat-icon-button matSuffix>
+                <mat-icon matSuffix>email</mat-icon>
+            </button>
+                <mat-hint align="end">Add Email</mat-hint>
+            </mat-form-field>
+
+            <mat-divider></mat-divider>
+        </div>
+        &nbsp;&nbsp;
+        <div class="mdl-cell mdl-cell--2-col">
+            <mat-form-field appearance="outline">
+                <mat-label>Telefono</mat-label>
+                <input formControlName="telefono" matInput placeholder="Telefono" required>
+                <button mat-icon-button matSuffix>
+                <mat-icon>call</mat-icon>
+            </button>
+                <mat-hint align="end">Add Number</mat-hint>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+        </div>
+    </div>
+
+    <div class="mdl-grid mdl-typography--text-center" style="justify-content:center;">
+        <div class="mdl-cell mdl-cell--2-col">
+            <mat-form-field appearance="outline">
+                <mat-label>Fecha Nacimiento</mat-label>
+                <input formControlName="fecha" matInput [matDatepicker]="picker" placeholder="Fecha Nacimiento">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #picker></mat-datepicker>
+                <mat-hint align="end">Add Date</mat-hint>
+            </mat-form-field>
+
+            <mat-divider></mat-divider>
+        </div>
+        &nbsp;&nbsp;
+        <div class="mdl-cell mdl-cell--2-col">
+            <mat-form-field appearance="outline">
+                <mat-label>Edad</mat-label>
+                <input type="number" formControlName="edad" matInput placeholder="Edad" />
+                <button mat-icon-button matSuffix>
+                <mat-icon matSuffix>exposure</mat-icon>
+            </button>
+                <mat-hint align="end">Add Edad</mat-hint>
+            </mat-form-field>
+
+            <mat-divider></mat-divider>
+        </div>
+    </div>
+
+    <div class="mdl-grid mdl-typography--text-center" style="justify-content:center;">
+        <div class="mdl-cell mdl-cell--4-col">
+            <mat-form-field appearance="outline">
+                <mat-label>Comentarios</mat-label>
+                <textarea formControlName="comment" matInput placeholder="Ex. It makes me feel... "></textarea>
+                <button mat-icon-button matSuffix>
+                <mat-icon matSuffix>comment</mat-icon>
+            </button>
+                <mat-hint align="end">Add Comment</mat-hint>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="mdl-grid mdl-typography--text-center" style="justify-content:center;">
+        <div class="mdl-cell mdl-cell--1-col">
+            <button [disabled]="!form.valid" mat-raised-button color="primary" type="submit" (click)="submit(form.value)">Submit</button>
+        </div>
+        <div class="mdl-cell mdl-cell--1-col">
+            <button mat-raised-button color="primary" type="reset">Delete</button>
+        </div>
+    </div>
+</form>
+
+<div style="margin: 10px;float:right">
+    <button mat-raised-button color="primary" (click)="goBack()">Go Back <mat-icon aria-hidden="false">assignment_return</mat-icon></button>
+</div>

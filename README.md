@@ -4,24 +4,27 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Uso:
 
-## Code scaffolding
+1. Acceder al directorio /project-angular y ejecutar el comando $ npm install.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. Ejecutar el comando $ ng serve y navegar a la url: `http://localhost:4200/`.
 
-## Build
+3. Este proyecto se creo utilizando la BD de Realtime Firebase de Google, igualemente se ocupa la authentication de Firebase, de tipo Email/Password credenciales: Email: usuario@gmail.com Password: 123456
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+PD: Igualmente se pueden crear nuevos usuarios.
+__________________________________________________________________________________________________________________________
+Desarrollos Aplicados:
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. Barra superior de opciones, estilo Angular Material, con boton dinamico que habilita contenido lateral plegable para navegación a distintas zonas de la aplicación.
+2. Login, user y password, con validaciones respectivas (formulario reactivo), estilo Angular Material, con MatIcons de sufijo, Ver password u ocultar.
+3. Google reCaptcha V2.
+4. Tabla Angular Material con filtro de busquedas, paginación, orden ascedente o descendete de cualquier columna, cambio de tamaño de paginación.
+5. Opciones de agregar, editar y eliminar registros, con botones Angular Material y ventana modal Angular Material (Dialog), con sus respectivos formularios reactivos para efectuar la acción.
+6. Icono de usuario dinámico, con tecnología Menú Angular Material, y que posee despliega la opción de cerrar sesión.
+7. Botón de registro de usuarios que activa una ventana modal Angular Material y se comunica con la base de datos de usuarios Firestore Auth.
+8. Manejo de sesion con Firestore Auth, la cual entrega token para usuarios correctos y con dicho Token podemos consumir los servicios HTTP para llegar a la BD Firestore Database y obtener los registros respectivos.
+9. Apartado para mostrar las distintas opciones de un formulario reactivo con Angular Material (Texto, Numeros, Correos, Fechas, Etc.)
+10. Apartado para mostrar tecnologias aplicadas con HTML5.
+11. El apartado de personas y login, poseen implementado Ripple Angular Material para dar efecto indicativo de click en la pagina.
+12. Registrar usuario en Firebase Authentication, modificar contraseña de usuario usando correo respectivo.

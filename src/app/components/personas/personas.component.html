@@ -1,0 +1,74 @@
+<div matRipple [matRippleUnbounded]="true" [matRippleRadius]="100">
+    <div *ngIf="startSpinner" style="float: left; position: relative; left: 46%">
+        <mat-spinner color="accent" diameter="100" mode="indeterminate" style="margin: 30vh 0">
+        </mat-spinner>
+    </div>
+    <div style="width:80%;margin: 10px auto;">
+        <mat-card
+            style="width:60%; margin: 20px auto; background:#B084CC;text-align:center;box-shadow: 0px 5px 5px 0px;height: 30px;">
+            <mat-card-title>Lista de Personas</mat-card-title>
+            <mat-card-subtitle>Tabla con paginación, ordenamiento, filtrado y exportación de datos a excel
+            </mat-card-subtitle>
+        </mat-card>
+
+        <mat-form-field style="width: 100%;">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Agrega un filtro">
+        </mat-form-field>
+
+        <mat-table [dataSource]="dataSource" matSort>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Id</strong> </mat-header-cell>
+                <mat-cell *matCellDef="let persona"> <strong>{{persona.id}} </strong></mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="nombre">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Nombre</strong> </mat-header-cell>
+                <mat-cell *matCellDef="let persona"> {{persona.nombre}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="apellido">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Apellido</strong> </mat-header-cell>
+                <mat-cell *matCellDef="let persona"> {{persona.apellido}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="rut">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Rut</strong> </mat-header-cell>
+                <mat-cell *matCellDef="let persona"> {{persona.rut}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="gestion">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <button style="float:right;margin:10px" mat-mini-fab color="primary" (click)="openDialogAgregar()">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let persona">
+                    <div class="example-button-container">
+                        <button mat-icon-button (click)="openDialogEditar(persona)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="openDialogEliminar(persona)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                </mat-cell>
+            </ng-container>
+        </mat-table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+
+        <button style="float:letf;margin:10px" mat-raised-button color="accent"
+            (click)="this.startSpinner=true;exportAsXLSX()">Export (.xsls)
+            <mat-icon aria-hidden="false">cloud_download</mat-icon>
+        </button>
+
+        <button style="float:right;margin:10px" mat-raised-button color="primary" (click)="goBack()">Go Back <mat-icon
+                aria-hidden="false">assignment_return</mat-icon>
+        </button>
+    </div>
+</div>
